@@ -51,4 +51,5 @@ group :test, :development do
 	gem 'rspec'
 	gem 'rspec-rails'
 	gem 'capybara'
+	gem 'simplecov'
 end	
