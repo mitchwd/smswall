@@ -45,6 +45,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 group :test, :development do
+	gem 'rake'
 	gem 'guard'
 	gem 'guard-rspec'
 	gem 'rspec'
