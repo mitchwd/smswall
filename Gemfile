@@ -48,6 +48,7 @@ group :test, :development do
 	gem 'rake'
 	gem 'guard'
 	gem 'guard-rspec'
+	gem 'terminal-notifier-guard'
 	gem 'rspec'
 	gem 'rspec-rails'
 	gem 'capybara'
