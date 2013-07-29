@@ -43,3 +43,9 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :test, :development do
+	gem 'rspec'
+	gem 'rspec-rails'
+	gem 'capybara'
+end	
