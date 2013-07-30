@@ -3,6 +3,7 @@ class Message < ActiveRecord::Base
 	validates :content, :author, :kind, presence: true
 	validates :message_timestamp, presence: true
 	validates :kind, inclusion: { in: %w(tweet sms) }
+	validates :content, length: { maximum: 255 }
 
 	# Validate that only tweets have a corresponding URL
 	validates :url, presence: true, if: :should_have_url?
