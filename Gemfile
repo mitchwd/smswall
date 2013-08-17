@@ -55,3 +55,5 @@ group :test, :development do
 	gem 'simplecov'
 	gem 'shoulda-matchers'
 end	
+
+gem 'factory_girl_rails', '~> 4.0'
