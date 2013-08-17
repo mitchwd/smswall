@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Message do
 
-    let(:message) { Message.new }
+    let(:message) { FactoryGirl.build(:message) }
 
     it { expect(message).to validate_presence_of :content }
     it { expect(message).to validate_presence_of :author }
@@ -16,7 +16,7 @@ describe Message do
     end
 
     context "Tweets" do
-        let (:message) { Message.new(content: "Hello world", author: "mitchwd", kind: "tweet", url: "http://www.example.com/", visible: true, message_timestamp: "Thu Nov 26 00:00:00 -0800 2009") }
+        let (:message) { FactoryGirl.build(:tweet) }
 
         describe "attributes" do
 
@@ -33,11 +33,11 @@ describe Message do
     end
 
     context "SMS" do
-        let (:message) { Message.new(content: "Hello world", author: "61401234567", kind: "sms", url: "", visible: true, message_timestamp: "Thu Nov 26 00:00:00 -0800 2009") }
+        let (:message) { FactoryGirl.build(:sms) }
 
         describe "attributes" do
             it "ensures SMS does not have url" do
-                expect(message.url).to eq("")
+                expect(message.url).to eq(nil)
             end
 
             it "ensures author is a phone number" do
