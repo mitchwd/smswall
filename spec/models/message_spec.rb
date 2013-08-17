@@ -9,7 +9,7 @@ describe Message do
     it { expect(message).to validate_presence_of :kind }
     it { expect(message).to validate_presence_of :message_timestamp }
     it { expect(message).to ensure_length_of(:content).is_at_most(255) }
-    it { expect(message).to ensure_inclusion_of(:kind).in_array(['tweet', 'sms']) }
+    it { expect(message).to ensure_inclusion_of(:kind).in_array(['tweet', 'sms', 'test']) }
    
     it "validates format of timestamp" do
         pending "WIP: Do we really need to test this?"
