@@ -51,5 +51,15 @@ describe Message do
         end
 
     end
+
+    context "Invalid Message" do 
+        let (:message) { FactoryGirl.build(:invalid_message) }
+
+        describe "attributes" do
+          it "should not save attributes" do
+            expect(message).to be_invalid
+          end
+        end
+    end
   
 end

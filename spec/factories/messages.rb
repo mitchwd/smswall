@@ -19,5 +19,9 @@ FactoryGirl.define do
     kind "tweet"
     url "http://www.example.com/user/" + Random.rand.to_s[2..5] + "/tweet/" + Random.rand.to_s[2..8]
   end
+
+  factory :invalid_message, parent: :message do 
+    content nil
+  end
   
 end
