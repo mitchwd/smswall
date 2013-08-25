@@ -10,7 +10,7 @@ describe Message do
     it { expect(message).to validate_presence_of :message_timestamp }
     it { expect(message).to ensure_length_of(:content).is_at_most(255) }
     it { expect(message).to ensure_inclusion_of(:kind).in_array(['tweet', 'sms', 'test', 'announcement']) }
-   
+
     it "validates format of timestamp" do
         pending "WIP: Do we really need to test this?"
     end
@@ -22,6 +22,15 @@ describe Message do
 
             it "ensures tweet has url" do
                expect(message).to validate_presence_of :url
+            end
+
+            it "validates format of URL" do
+                expect(message).to allow_value("http://www.example.com/test").for(:url)
+                expect(message).to allow_value("https://www.example.com/test").for(:url)
+                expect(message).to_not allow_value("www.example.com").for(:url)
+                expect(message).to_not allow_value("test").for(:url)
+                expect(message).to_not allow_value("http://").for(:url)
+                expect(message).to_not allow_value("http:/").for(:url)
             end
 
             it "saves attributes" do

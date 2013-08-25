@@ -5,8 +5,8 @@ class Message < ActiveRecord::Base
 	validates :kind, inclusion: { in: %w(tweet sms test announcement) }
 	validates :content, length: { maximum: 255 }
 
-	# Validate that only tweets have a corresponding URL
-	validates :url, presence: true, if: :should_have_url?
+	# Validate that only tweets have a corresponding and valid URL
+	validates :url, presence: true, format: { :with => /(^$)|(^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix }, if: :should_have_url?
 
 	# Validate that sms' authors are phone numbers
 	validates :author, numericality: true, if: :should_have_phone_number?
