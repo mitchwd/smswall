@@ -1,0 +1,9 @@
+<h1>Setup your smswall</h1>
+<p>Setting up smswall is super simple, just follow these easy steps:
+	<ol>
+		<li>Create an account at <%= link_to "www.nexmo.com", "http://www.nexmo.com" %></li>
+		<li>Add a number to your account.</li>
+		<li>Set the callback URL to: <input type="text" value="<%# url_for(action: "new", controller: "/messages", only_path: false) %>"></li>
+		<li>You're good to go!</li>
+	</ol>
+</p>

@@ -1,6 +1,7 @@
 Smswall::Application.routes.draw do
   get "static/index"
   get "static/about"
+  get "static/setup"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
