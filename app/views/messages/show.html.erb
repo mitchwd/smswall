@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @message.content %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @message.author %>
+</p>
+
+<p>
+  <strong>Kind:</strong>
+  <%= @message.kind %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @message.url %>
+</p>
+
+<p>
+  <strong>Visible:</strong>
+  <%= @message.visible %>
+</p>
+
+<p>
+  <strong>Message timestamp:</strong>
+  <%= @message.message_timestamp %>
+</p>
+
+<%= link_to 'Edit', edit_message_path(@message) %> |
+<%= link_to 'Back', messages_path %>
