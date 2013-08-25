@@ -12,6 +12,17 @@ class MessagesController < ApplicationController
   def show
   end
 
+  # GET /messages/new
+  # GET /messages/new.json
+  def new
+    @message = Message.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @message }
+    end
+  end
+
   # POST /messages
   # POST /messages.json
   def create
@@ -22,7 +33,7 @@ class MessagesController < ApplicationController
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.json { render action: 'show', status: :created, location: @message }
       else
-        format.html { render action: 'index', notice: 'Error: Message was not created.' }
+        format.html { render action: 'new' }
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end

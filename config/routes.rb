@@ -1,5 +1,6 @@
 Smswall::Application.routes.draw do
-  resources :messages, only: [:index, :create, :show, :destroy]
+
+  resources :messages, only: [:index, :new, :create, :show, :destroy]
 
   get "static/index"
   get "static/about"

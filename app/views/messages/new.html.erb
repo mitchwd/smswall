@@ -1,0 +1,49 @@
+<%= form_for(@message) do |f| %>
+  <% if @message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+      <% @message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+  	<legend>Remember:</legend>
+ 	 SMS messages have an author (sender's mobile number)<br />
+ 	 Tweets have an author (username) and a url (permalink)
+  </fieldset><br />
+
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_field :content, size: 255 %>
+  </div>
+  <div class="field">
+  	<%= f.label :kind %><br />
+  	<%= f.select(:kind, options_for_select([['SMS','sms'],['Tweet','tweet']])) %>
+  </div>
+  <div class="field">
+    <%= f.label :author %><br />
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+  	<%= f.label :url, "URL" %><br />
+  	<%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :visible, "Visible?" %><br />
+    <%= f.check_box :visible %>
+  </div>
+  <div class="field">
+  	<%= f.label :message_timestamp %><br />
+  	<%= f.datetime_select :message_timestamp %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to "Back", messages_path %>

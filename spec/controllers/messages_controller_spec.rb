@@ -28,7 +28,18 @@ describe MessagesController do
     end
   end
 
-  describe "POST create" do 
+  describe "GET #new" do
+    it "assigns a new Message to @message" do
+      post :new, message: FactoryGirl.attributes_for(:message)
+      assigns(:message).should be_a(Message)
+    end
+    it "renders the :new_sms template" do
+      get :new, id: FactoryGirl.attributes_for(:message)
+      response.should render_template :new
+    end
+  end
+
+  describe "POST #create" do 
     context "with valid attributes" do
       it "creates a new message" do
         expect{
@@ -55,14 +66,14 @@ describe MessagesController do
         }.to_not change(Message,:count)
       end
 
-      it "returns to index" do
+      it "returns to new" do
         post :create, message: FactoryGirl.attributes_for(:invalid_message)
-        response.should render_template :index
+        response.should render_template :new
       end
     end 
   end
 
-  describe "DELETE destroy" do
+  describe "DELETE #destroy" do
     before :each do
       @message = FactoryGirl.create(:message)
     end
