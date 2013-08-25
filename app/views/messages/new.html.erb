@@ -14,7 +14,8 @@
   <fieldset>
   	<legend>Remember:</legend>
  	 SMS messages have an author (sender's mobile number)<br />
- 	 Tweets have an author (username) and a url (permalink)
+ 	 Tweets have an author (username) and a url (permalink)<br />
+   Announcements only have an author (string)
   </fieldset><br />
 
   <div class="field">
@@ -23,7 +24,7 @@
   </div>
   <div class="field">
   	<%= f.label :kind %><br />
-  	<%= f.select(:kind, options_for_select([['SMS','sms'],['Tweet','tweet']])) %>
+  	<%= f.select(:kind, options_for_select([['SMS','sms'],['Tweet','tweet'],['Announcement','announcement']])) %>
   </div>
   <div class="field">
     <%= f.label :author %><br />
