@@ -11,13 +11,6 @@
     </div>
   <% end %>
 
-  <fieldset>
-  	<legend>Remember:</legend>
- 	 SMS messages have an author (sender's mobile number)<br />
- 	 Tweets have an author (username) and a url (permalink)<br />
-   Announcements only have an author (string)
-  </fieldset><br />
-
   <div class="field">
     <%= f.label :content %><br />
     <%= f.text_field :content, size: 255 %>
@@ -30,7 +23,7 @@
     <%= f.label :author %><br />
     <%= f.text_field :author %>
   </div>
-  <div class="field">
+  <div class="field url">
   	<%= f.label :url, "URL" %><br />
   	<%= f.text_field :url %>
   </div>
