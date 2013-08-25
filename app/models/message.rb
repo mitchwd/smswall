@@ -2,7 +2,7 @@ class Message < ActiveRecord::Base
 
 	validates :content, :author, :kind, presence: true
 	validates :message_timestamp, presence: true
-	validates :kind, inclusion: { in: %w(tweet sms test announcement) }
+	validates :kind, inclusion: { in: %w(tweet sms test announcement retweet) }
 	validates :content, length: { maximum: 255 }
 
 	# Validate that only tweets have a corresponding and valid URL
@@ -12,7 +12,7 @@ class Message < ActiveRecord::Base
 	validates :author, numericality: true, if: :should_have_phone_number?
 
 	def should_have_url?
-		kind == "tweet"
+		['tweet', 'retweet'].include? kind
 	end
 
 	def should_have_phone_number?
